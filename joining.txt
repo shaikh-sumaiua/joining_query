@@ -1,0 +1,97 @@
+there are basically 4 types of joining are avalable 
+1.
+2.Innner joining
+3.left joining
+4.cross joining 
+
+
+
+
+1.INNER JOIN or JOIN
+
+
+
+1)SELECT * FROM person INNER JOIN city
+ON person.cityid = city.cid;
+
+second method (instated of writing full name of the person we only write person p,city c)
+1)SELECT * FROM person p INNER JOIN city c
+ON p.cityid = c.cid;
+
+1)3table joining
+SELECT * from ((person 
+        INNER JOIN city ON person.cityid = city.cid)
+        INNER JOIN course ON person.courceid = course.id);
+                 
+          
+1)SELECT * from ((person p
+        INNER JOIN city c ON p.cityid = c.cid)
+        INNER JOIN course k ON p.courceid = k.id);
+          
+          
+          
+
+3)perticular column ne jova mate
+SELECT p.id,p.name,p.percentage,p.age,p.gender,c.name
+FROM person p INNER JOIN city c
+ON p.cityid = c.cid;
+
+4)we also use where in joining
+
+SELECT p.id,p.name,p.percentage,p.age,p.gender,c.cityname
+FROM person p INNER JOIN city c
+ON p.cityid = c.cid
+WHERE c.cityname = "bhavnagar" 
+ORDER BY p.name;
+
+4)inner joint is also called join.
+  so.inner join and join both are same 
+SELECT p.id,p.name,p.percentage,p.age,p.gender,c.cityname
+FROM person p JOIN city c
+ON p.cityid = c.cid
+WHERE c.cityname = "bhavnagar" 
+ORDER BY p.name;
+
+
+5)joining of 3 tables
+
+SELECT p.id,p.name,p.percentage,p.age,p.gender,c.cityname,course.cname
+FROM ((person p 
+INNER JOIN city c ON p.cityid = c.cid)
+INNER JOIN course  ON p.courceid = course.id);
+
+				or
+SELECT p.id,p.name,p.percentage,p.age,p.gender,c.cityname,k.cname
+FROM ((person p 
+INNER JOIN city c ON p.cityid = c.cid)
+INNER JOIN course k ON p.courceid = k.id);
+
+2)LEFT JOIN & RIGHT JOIN
+1)
+SELECT * FROM person LEFT JOIN city
+on person.cityid = city.cid;
+
+
+3)right join
+right join show the all data and also show the other table data which is not match with it.
+
+
+
+4)cross join
+
+
+
+
+
+grouup by
+select COUNT(p.cityid),p.name, c.cityname
+FROM person p   
+INNER join city c
+on p.cityid= c.cid
+GROUP BY cityid
+HAVING cityname="bhavnagar" AND ;
+
+SELECT c.cityname, COUNT(p.cityid)
+FROM person p INNER JOIN city c
+on p.cityid = c.cid
+GROUP BY cityid;
