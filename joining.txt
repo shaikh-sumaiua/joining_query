@@ -3,14 +3,7 @@ there are basically 4 types of joining are avalable
 2.Innner joining
 3.left joining
 4.cross joining 
-
-
-
-
 1.INNER JOIN or JOIN
-
-
-
 1)SELECT * FROM person INNER JOIN city
 ON person.cityid = city.cid;
 
